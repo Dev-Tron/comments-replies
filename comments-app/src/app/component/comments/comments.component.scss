@@ -1,0 +1,107 @@
+.comments {
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 100%);
+    padding: 5%;
+    margin: 5%;
+    border-radius: 8px;
+}
+
+.user-avatar-container {
+    display: flex;
+}
+
+.hide-show {
+    display: none;
+}
+
+.avatar-img {
+    height: 2rem;
+    width: 2rem;
+}
+
+.button-share {
+    display: flex;
+}
+
+.score-button {
+    display: flex;
+    background-color: hsl(228, 33%, 97%);
+    gap: 1rem;
+    padding: 3%;
+    border-radius: 8px;
+}
+
+.user-avatar-container {
+    justify-content: flex-start;
+    gap: 5%;
+}
+
+.vl {
+    border-left: 1px solid hsl(239deg, 57%, 85%);
+    height: 200px;
+    position: absolute;
+    left: 5.9%;
+    margin-left: -3px;
+    top: 114%;
+  }
+
+.replies {
+    border-left: 1px solid hsl(239, 57%, 85%);
+    margin-left: 5%;
+}
+
+.replies-container {
+    background-color: hsl(0, 0%, 100%);
+    padding: 5%;
+    margin: 5%;
+    border-radius: 8px;
+}
+
+.content {
+    margin-top: 5%;
+}
+
+.button-share {
+    margin-top: 5%;
+    justify-content: space-between;
+}
+
+.edit-delete {
+    display: flex;
+    margin-top: 2%;
+    gap: 15px;
+}
+
+.decrement {
+    margin-top: -5%;
+}
+
+.you {
+    background-color: #5457b6;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: .8rem;
+    font-weight: 500;
+    height: 25px;
+}
+
+.space {
+    margin-right: 5px;
+}
+
+.add-comment {
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(0deg, 0%, 100%);
+    padding: 5%;
+    margin: 5%;
+    border-radius: 8px;
+}
+
+.image-send {
+    display: flex;
+    margin-top: 8%;
+    justify-content: space-between;
+}

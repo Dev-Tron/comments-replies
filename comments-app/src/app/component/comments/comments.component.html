@@ -1,0 +1,106 @@
+<div class="cards" *ngFor="let comment of currentUser.comments">
+    <div class="comments">
+        <div class="user-avatar-container">
+            <img class="avatar-img" src="../../../assets/images/avatars/{{comment.user.image.png.split('/').pop()}}" alt="avatar-image">
+            <h1 class="user-title">
+                {{ comment.user.username }}
+            </h1>  
+            <span [ngStyle]="{'color':'#67727e'}">{{ comment.createdAt }}</span>
+            <div class="hide-show">
+                <img src="../../../assets/images/icon-reply.svg" alt="reply-check">
+                Reply
+            </div>
+        </div>
+        <p class="content">
+            {{ comment.content }}
+        </p>
+        <div class="button-share">
+            <div class="score-button">
+                <div>
+                    <img src="../../../assets/images/icon-plus.svg" alt="plus-sign">
+                </div>
+                <span [ngStyle]="{'color':'hsl(238, 40%, 52%)'}">
+                    {{ comment.score }}
+                </span>
+                <div class="decrement">
+                    <img src="../../../assets/images/icon-minus.svg" alt="minus-sign">
+                </div>
+            </div>
+            <div [ngStyle]="{'color':'hsl(238, 40%, 52%)', 'margin-top':'2%'}">
+                <img src="../../../assets/images/icon-reply.svg" alt="reply-check">
+                Reply
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let reply of comment.replies">
+        <div class="vl"></div>
+        <div class="replies">
+            <div class="replies-container" >
+                <div class="user-avatar-container">
+                    <img class="avatar-img" src="../../../assets/images/avatars/{{reply.user.image.png.split('/').pop()}}" class="avatar-img">
+                    <h1>
+                        {{ reply.user.username }}
+                    </h1>
+                    <span *ngIf="reply.user.username !== currentUser.currentUser.username else who"></span>
+                    <ng-template #who>
+                        <div class="you">
+                            <span>you</span>
+                        </div>
+                    </ng-template>
+                    <span [ngStyle]="{'color':'#67727e'}">
+                        {{ reply.createdAt }}
+                    </span>
+                </div>
+                <div class="hide-show">
+                    <img src="../../../assets/images/icon-reply.svg" alt="reply-check">
+                    Reply
+                </div>
+                <p [ngStyle]="{'margin-top':'5%'}">
+                    <span [ngStyle]="{'color':'hsl(238, 40%, 52%)'}">@{{ reply.replyingTo }}</span>
+                    {{ reply.content }}
+                </p>
+                <div class="button-share">
+                    <div class="score-button">
+                        <div class="increment">
+                            <img src="../../../assets/images/icon-plus.svg" alt="plus-sign">
+                        </div>
+                        <span [ngStyle]="{'color':'hsl(238, 40%, 52%)'}">
+                            {{ reply.score }}
+                        </span>
+                        <div class="decrement">
+                            <img src="../../../assets/images/icon-minus.svg" alt="minus-sign">
+                        </div>
+                    </div>
+                    <div [ngStyle]="{'color':'hsl(238, 40%, 52%)', 'margin-top':'2%'}" *ngIf="reply.user.username !== currentUser.currentUser.username else editDeleteBtns">
+                        <img src="../../../assets/images/icon-reply.svg" alt="reply-check">
+                        Reply
+                    </div>
+                </div>
+                <ng-template #editDeleteBtns>
+                    <div class="edit-delete">
+                        <div [ngStyle]="{'color':'hsl(358, 79%, 66%)'}">
+                            <img src="../../../assets/images/icon-delete.svg" alt="trash-icon">
+                            Delete
+                        </div>
+                        <div [ngStyle]="{'color':'hsl(238, 40%, 52%)'}">
+                            <img src="../../../assets/images/icon-edit.svg" alt="edit-icon">
+                            Edit
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <textarea name="" id="" cols="30" rows="4" [ngStyle]="{'border-radius':'5px', 'padding':'5%', 'border':'1px solid hsl(223, 19%, 93%)'}" placeholder="Add a comment..." ></textarea>
+    <div class="image-send">
+        <div>
+            <img class="avatar-img" src="../../../assets/images/avatars/image-juliusomo.png" alt="user-avatar">
+        </div>
+        <button>
+            SEND
+        </button>
+    </div>
+</div>            
+
