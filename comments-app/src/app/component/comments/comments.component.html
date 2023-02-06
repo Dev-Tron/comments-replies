@@ -16,13 +16,13 @@
         </p>
         <div class="button-share">
             <div class="score-button">
-                <div>
+                <div (click)="scoreChange(comment.id, 1)">
                     <img src="../../../assets/images/icon-plus.svg" alt="plus-sign">
                 </div>
                 <span [ngStyle]="{'color':'hsl(238, 40%, 52%)'}">
                     {{ comment.score }}
                 </span>
-                <div class="decrement">
+                <div (click)="scoreChange(comment.id, 2)">
                     <img src="../../../assets/images/icon-minus.svg" alt="minus-sign">
                 </div>
             </div>
@@ -55,19 +55,19 @@
                     <img src="../../../assets/images/icon-reply.svg" alt="reply-check">
                     Reply
                 </div>
-                <p [ngStyle]="{'margin-top':'5%'}">
+                <p class="content">
                     <span [ngStyle]="{'color':'hsl(238, 40%, 52%)'}">@{{ reply.replyingTo }}</span>
                     {{ reply.content }}
                 </p>
                 <div class="button-share">
                     <div class="score-button">
-                        <div class="increment">
+                        <div (click)="scoreChange(reply.id, 1)">
                             <img src="../../../assets/images/icon-plus.svg" alt="plus-sign">
                         </div>
                         <span [ngStyle]="{'color':'hsl(238, 40%, 52%)'}">
                             {{ reply.score }}
                         </span>
-                        <div class="decrement">
+                        <div (click)="scoreChange(reply.id, 2)">
                             <img src="../../../assets/images/icon-minus.svg" alt="minus-sign">
                         </div>
                     </div>
@@ -92,7 +92,7 @@
         </div>
     </div>
 </div>
-<div>
+<div [ngStyle]="{'margin':'5%', 'background-color':'white', 'padding':'5%', 'border-radius': '8px'}">
     <textarea name="" id="" cols="30" rows="4" [ngStyle]="{'border-radius':'5px', 'padding':'5%', 'border':'1px solid hsl(223, 19%, 93%)'}" placeholder="Add a comment..." ></textarea>
     <div class="image-send">
         <div>
